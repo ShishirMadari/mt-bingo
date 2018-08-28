@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Divider from '@material-ui/core/Divider';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
 
+const theme = createMuiTheme({
+    palette: {
+        type: 'dark', // Switching the dark mode on is a single property value change.
+    },
+});
 
 const styles = theme => ({
-    root: {
-        backgroundColor: "transparent"
-    },
     layout: {
         width: 'auto',
-        backgroundColor: "transparent",
         marginLeft: theme.spacing.unit * 2,
         marginRight: theme.spacing.unit * 2,
         marginTop: theme.spacing.unit * 20,
@@ -29,7 +29,7 @@ const styles = theme => ({
     },
     paper: {
         ...theme.mixins.gutters(),
-        backgroundColor: theme.palette.grey[800],
+        backgroundColor: theme.palette.grey[900],
         marginTop: theme.spacing.unit * 3,
         marginBottom: theme.spacing.unit * 3,
         padding: theme.spacing.unit * 2,
@@ -44,9 +44,27 @@ const styles = theme => ({
     },
     buttons: {
         width: "100%",
+        background: 'linear-gradient(45deg, #FFC107 30%, #FFEE58 90%)',
     },
     title: {
-        padding: theme.spacing.unit * 6,
+        fontSize: "8vw",
+        fontFamily: "Riesling",
+        textAlign: 'center',
+        color: "#FBD541",
+    },
+    cssLabel: {
+        '&$cssFocused': {
+            color: "#FBD541"
+        },
+    },
+    cssFocused: {},
+    cssUnderline: {
+        '&:after': {
+            borderBottomColor: "#FBD541"
+        },
+    },
+    formWidth: {
+        width: "95%"
     }
 });
 
@@ -58,29 +76,49 @@ const TicketForm = ({ classes }) => {
                 <main>
                     <Paper className={classes.paper}>
                         <div className={classes.title}>
-                            <Typography variant="display3">{"ticket submission"}</Typography>
+                            <Typography className={classes.title}>{"Ticket Submission"}</Typography>
                         </div>
-                        <Grid container spacing={24} className={classes.formGrid}>
-                            <Grid item xs={12} sm={8}>
-                                <TextField
-                                    required
-                                    id="name"
-                                    name="name"
-                                    label="Name"
-                                    fullWidth
-                                    autoComplete="name"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={4}>
-                                <TextField
-                                    required
-                                    id="numTickets"
-                                    name="numTickets"
-                                    label="Number of tickets"
-                                    fullWidth
-                                    autoComplete="tickets"
-                                />
-                            </Grid>
+                        <Grid container spacing={12} className={classes.formGrid}>
+                            <MuiThemeProvider theme={theme}>
+                                <Grid item xs={12} sm={8}>
+                                    <FormControl className={classes.formWidth}>
+                                        <InputLabel
+                                            FormLabelClasses={{
+                                                root: classes.cssLabel,
+                                                focused: classes.cssFocused,
+                                            }}
+                                            htmlFor="custom-css-input"
+                                        >
+                                            {"Name"}
+                                        </InputLabel>
+                                        <Input
+                                            classes={{
+                                                underline: classes.cssUnderline,
+                                            }}
+                                            id="custom-css-input"
+                                        />
+                                    </FormControl>
+                                </Grid>
+                                <Grid item xs={12} sm={4}>
+                                    <FormControl className={classes.formWidth}>
+                                        <InputLabel
+                                            FormLabelClasses={{
+                                                root: classes.cssLabel,
+                                                focused: classes.cssFocused,
+                                            }}
+                                            htmlFor="custom-css-input"
+                                        >
+                                            {"Number of Tickets"}
+                                        </InputLabel>
+                                        <Input
+                                            classes={{
+                                                underline: classes.cssUnderline,
+                                            }}
+                                            id="custom-css-input"
+                                        />
+                                    </FormControl>
+                                </Grid>
+                            </MuiThemeProvider>
                         </Grid>
                         <Grid container spacing={16}>
                             <Grid item xs={12} sm={6}>

@@ -1,28 +1,20 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+@font-face {
+  font-family: 'Riesling';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Riesling'), local('Riesling'),
+       url('./assets/fonts/riesling.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+body {
+  font-family: 'Riesling';
+  background-image: url('https://www.hottopics.ht/wp-content/uploads/2015/11/6087506636_7e123994b4_o.jpg');
+  background-repeat: no-repeat;
+  background-position: center right; 
+  filter: grayscale(0%); 
 }

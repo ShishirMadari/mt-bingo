@@ -5,11 +5,8 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
 
-
-
-// img
-import casinoNight from './../../assets/images/casinoNight.svg'
 
 const styles = theme => ({
     root: {
@@ -21,8 +18,8 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit * 2,
         marginRight: theme.spacing.unit * 2,
         marginTop: theme.spacing.unit * 20,
-        [theme.breakpoints.up(1000 + theme.spacing.unit * 4)]: {
-            width: 1000,
+        [theme.breakpoints.up(600 + theme.spacing.unit * 4)]: {
+            width: 700,
             marginLeft: 'auto',
             marginRight: 'auto',
         },
@@ -39,16 +36,22 @@ const styles = theme => ({
             padding: theme.spacing.unit * 3,
         },
     },
+    grid: {
+        marginTop: theme.spacing.unit * 2,
+        marginBottom: theme.spacing.unit * 2,
+    },
+    topDivider: {
+        marginBottom: theme.spacing.unit * 3,
+    },
+    bottomDivider: {
+        marginTop: theme.spacing.unit * 3,
+    },
     buttons: {
         width: "100%",
         background: 'linear-gradient(45deg, #FFC107 30%, #FFEE58 90%)',
     },
-    titleSVG: {
-        width: "100%",
-        height: "100%",
-    },
     title: {
-        fontSize: "15vw",
+        fontSize: "10vw",
         fontFamily: "Riesling",
         textAlign: 'center',
         marginBottom: theme.spacing.unit * 3,
@@ -56,27 +59,30 @@ const styles = theme => ({
     }
 });
 
-// background: 'linear-gradient(45deg, #FFC107 30%, #FFEE58 90%)',
-// background: 'radial-gradient(circle at 50% 0,#FFBF00,#FFDC73)',
 
-const Home = ({ classes }) => {
+const RafflePage = ({ classes }) => {
     return (
         <React.Fragment>
             <div className={classes.layout} >
                 <main>
                     <Paper className={classes.paper}>
                         <div className={classes.title}>
-                            {'Casino Night'}
+                            <Typography className={classes.title}>{"Raffle"}</Typography>
                         </div>
                         <Grid container spacing={16}>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item sm={12}>
                                 <Button variant="outlined" className={classes.buttons}>
-                                    {"submit tickets"}
+                                    {"draw raffle"}
                                 </Button>
                             </Grid>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item sm={12} className={classes.grid}>
+                                <Divider className={classes.topDivider} />
+                                <Typography variant="headline">{"click on the 'draw raffle' button to select a winner"}</Typography>
+                                <Divider className={classes.bottomDivider} />
+                            </Grid>
+                            <Grid item sm={12}>
                                 <Button variant="outlined" className={classes.buttons}>
-                                    {"raffle"}
+                                    {"back"}
                                 </Button>
                             </Grid>
                         </Grid>
@@ -88,8 +94,8 @@ const Home = ({ classes }) => {
 }
 
 
-Home.propTypes = {
+RafflePage.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(RafflePage);
