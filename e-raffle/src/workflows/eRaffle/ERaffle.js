@@ -12,7 +12,7 @@ class ERaffle extends Component {
   render() {
     return (
       <div>
-        <TicketForm />
+        <RafflePage />
       </div>
     );
   }

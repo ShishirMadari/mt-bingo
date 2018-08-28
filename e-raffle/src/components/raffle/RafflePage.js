@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -8,18 +8,22 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 
 
+const theme = createMuiTheme({
+    palette: {
+        type: 'dark', // Switching the dark mode on is a single property value change.
+    },
+});
+
 const styles = theme => ({
     root: {
-        backgroundColor: "transparent"
     },
     layout: {
         width: 'auto',
-        backgroundColor: "transparent",
         marginLeft: theme.spacing.unit * 2,
         marginRight: theme.spacing.unit * 2,
         marginTop: theme.spacing.unit * 20,
-        [theme.breakpoints.up(600 + theme.spacing.unit * 4)]: {
-            width: 700,
+        [theme.breakpoints.up(500 + theme.spacing.unit * 4)]: {
+            width: 500,
             marginLeft: 'auto',
             marginRight: 'auto',
         },
@@ -30,7 +34,7 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 3,
         marginBottom: theme.spacing.unit * 3,
         padding: theme.spacing.unit * 2,
-        [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
+        [theme.breakpoints.up(500 + theme.spacing.unit * 3 * 2)]: {
             marginTop: theme.spacing.unit * 6,
             marginBottom: theme.spacing.unit * 6,
             padding: theme.spacing.unit * 3,
@@ -54,7 +58,6 @@ const styles = theme => ({
         fontSize: "10vw",
         fontFamily: "Riesling",
         textAlign: 'center',
-        marginBottom: theme.spacing.unit * 3,
         color: "#FBD541",
     }
 });
@@ -70,17 +73,19 @@ const RafflePage = ({ classes }) => {
                             <Typography className={classes.title}>{"Raffle"}</Typography>
                         </div>
                         <Grid container spacing={16}>
-                            <Grid item sm={12}>
+                            <Grid item xs={12}>
                                 <Button variant="outlined" className={classes.buttons}>
                                     {"draw raffle"}
                                 </Button>
                             </Grid>
                             <Grid item sm={12} className={classes.grid}>
-                                <Divider className={classes.topDivider} />
-                                <Typography variant="headline">{"click on the 'draw raffle' button to select a winner"}</Typography>
-                                <Divider className={classes.bottomDivider} />
+                                <MuiThemeProvider theme={theme}>
+                                    <Divider className={classes.topDivider} />
+                                    <Typography variant="headline">{"click on the 'draw raffle' button to select a winner"}</Typography>
+                                    <Divider className={classes.bottomDivider} />
+                                </MuiThemeProvider>
                             </Grid>
-                            <Grid item sm={12}>
+                            <Grid item xs={12}>
                                 <Button variant="outlined" className={classes.buttons}>
                                     {"back"}
                                 </Button>

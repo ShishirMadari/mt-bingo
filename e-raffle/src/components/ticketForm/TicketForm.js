@@ -21,7 +21,7 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit * 2,
         marginRight: theme.spacing.unit * 2,
         marginTop: theme.spacing.unit * 20,
-        [theme.breakpoints.up(600 + theme.spacing.unit * 4)]: {
+        [theme.breakpoints.up(700 + theme.spacing.unit * 4)]: {
             width: 700,
             marginLeft: 'auto',
             marginRight: 'auto',
@@ -87,7 +87,7 @@ const TicketForm = ({ classes }) => {
                                                 root: classes.cssLabel,
                                                 focused: classes.cssFocused,
                                             }}
-                                            htmlFor="custom-css-input"
+                                            required
                                         >
                                             {"Name"}
                                         </InputLabel>
@@ -95,7 +95,7 @@ const TicketForm = ({ classes }) => {
                                             classes={{
                                                 underline: classes.cssUnderline,
                                             }}
-                                            id="custom-css-input"
+                                            id="name"
                                         />
                                     </FormControl>
                                 </Grid>
@@ -106,7 +106,7 @@ const TicketForm = ({ classes }) => {
                                                 root: classes.cssLabel,
                                                 focused: classes.cssFocused,
                                             }}
-                                            htmlFor="custom-css-input"
+                                            required
                                         >
                                             {"Number of Tickets"}
                                         </InputLabel>
@@ -114,7 +114,7 @@ const TicketForm = ({ classes }) => {
                                             classes={{
                                                 underline: classes.cssUnderline,
                                             }}
-                                            id="custom-css-input"
+                                            id="tickets"
                                         />
                                     </FormControl>
                                 </Grid>
