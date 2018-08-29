@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 
-import { components } from './../../redux/actions/uiActions';
+import { components } from '../../redux/actions/uiActions';
 
 
 const theme = createMuiTheme({
@@ -61,43 +61,63 @@ const styles = theme => ({
         fontFamily: "Riesling",
         textAlign: 'center',
         color: "#FBD541",
+    },
+    result: {
+        fontSize: "5vw",
+        fontFamily: "Riesling",
+        textAlign: 'center',
+        color: "#FBD541",
     }
 });
 
+class RafflePage extends Component {
 
-const RafflePage = ({ classes, showComponent }) => {
-    return (
-        <React.Fragment>
-            <div className={classes.layout} >
-                <main>
-                    <Paper className={classes.paper}>
-                        <div className={classes.title}>
-                            <Typography className={classes.title}>{"Raffle"}</Typography>
-                        </div>
-                        <Grid container spacing={16}>
-                            <Grid item xs={12}>
-                                <Button variant="outlined" className={classes.buttons}>
-                                    {"draw raffle"}
-                                </Button>
+    drawRaffle(runRaffle) {
+        const result = runRaffle();
+        this.setState({
+            winner: result
+        })
+    }
+
+    render() {
+        const { classes, showComponent, runRaffle } = this.props;
+
+        const result = this.state && this.state.winner ? this.state.winner : "click on the 'draw raffle' button to select a winner";
+
+        console.log(result);
+        return (
+            <React.Fragment>
+                <div className={classes.layout} >
+                    <main>
+                        <Paper className={classes.paper}>
+                            <div className={classes.title}>
+                                <Typography className={classes.title}>{"Raffle"}</Typography>
+                            </div>
+                            <Grid container spacing={16}>
+                                <Grid item xs={12}>
+                                    <Button variant="outlined" className={classes.buttons} onClick={() => { this.drawRaffle(runRaffle) }}>
+                                        {"draw raffle"}
+                                    </Button>
+                                </Grid>
+                                <Grid item sm={12} className={classes.grid}>
+                                    <MuiThemeProvider theme={theme}>
+                                        <Divider className={classes.topDivider} />
+                                        <Typography className={classes.result}>{result}</Typography>
+                                        <Divider className={classes.bottomDivider} />
+                                    </MuiThemeProvider>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Button variant="outlined" className={classes.buttons} onClick={() => { showComponent(components.HOMEPAGE) }}>
+                                        {"back"}
+                                    </Button>
+                                </Grid>
                             </Grid>
-                            <Grid item sm={12} className={classes.grid}>
-                                <MuiThemeProvider theme={theme}>
-                                    <Divider className={classes.topDivider} />
-                                    <Typography variant="headline">{"click on the 'draw raffle' button to select a winner"}</Typography>
-                                    <Divider className={classes.bottomDivider} />
-                                </MuiThemeProvider>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Button variant="outlined" className={classes.buttons} onClick={() => { showComponent(components.HOMEPAGE) }}>
-                                    {"back"}
-                                </Button>
-                            </Grid>
-                        </Grid>
-                    </Paper>
-                </main>
-            </div>
-        </React.Fragment >
-    );
+                        </Paper>
+                    </main>
+                </div>
+            </React.Fragment >
+        );
+    }
 }
 
 

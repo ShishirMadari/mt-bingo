@@ -4,7 +4,7 @@ const initialState = {
 			currentComponent: 'homePage'
 		}
 	},
-	tickets: []
+	tickets: {}
 };
 
 export default initialState;

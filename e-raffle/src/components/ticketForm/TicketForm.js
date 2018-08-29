@@ -73,16 +73,27 @@ const styles = theme => ({
 
 class TicketForm extends Component {
 
+    submitTickets = (submitEntry, showComponent) => {
+        if (this.state && this.state.name && this.state.tickets) {
+            submitEntry(this.state.name, this.state.tickets);
+            alert("Entry made!");
+            showComponent(components.HOMEPAGE);
+        } else {
+            alert("Please enter a name and number of tickets");
+        }
+
+    }
+
     updateNameEntry = (event) => {
         this.setState({ name: event.target.value });
     }
 
     updateTicketEntry = (event) => {
-        this.setState({ tickets: event.target.value });
+        this.setState({ tickets: parseInt(event.target.value, 10) });
     }
 
     render() {
-        const { classes, showComponent } = this.props;
+        const { classes, showComponent, submitEntry } = this.props;
 
         return (
             <React.Fragment>
@@ -92,7 +103,7 @@ class TicketForm extends Component {
                             <div className={classes.title}>
                                 <Typography className={classes.title}>{"Ticket Submission"}</Typography>
                             </div>
-                            <Grid container spacing={12} className={classes.formGrid}>
+                            <Grid container spacing={16} className={classes.formGrid}>
                                 <MuiThemeProvider theme={theme}>
                                     <Grid item xs={12} sm={8}>
                                         <FormControl className={classes.formWidth}>
@@ -143,7 +154,7 @@ class TicketForm extends Component {
                                     </Button>
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
-                                    <Button variant="outlined" className={classes.buttons} onClick={this.submitTickets}>
+                                    <Button variant="outlined" className={classes.buttons} onClick={() => this.submitTickets(submitEntry, showComponent)}>
                                         {"submit"}
                                     </Button>
                                 </Grid>

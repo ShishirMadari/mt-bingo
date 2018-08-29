@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { showComponent, components } from './../../redux/actions/uiActions';
+import { submitTickets, removeWinningTicket } from './../../redux/actions/raffleActions';
 import { connect } from "react-redux";
 
 // components
@@ -14,14 +15,31 @@ import './../../App.css';
 
 class ERaffle extends Component {
 
+  runRaffle = () => {
+    const entries = this.props.entries;
+    let ticketArr = [];
+    let numEntries = 0;
+    Object.keys(entries).forEach(entry => {
+      for (let i = 0; i < entries[entry]; i++) {
+        ticketArr.push(entry);
+        numEntries++;
+      }
+    });
+    if (ticketArr.length === 0) { return "there are currently no entries" }
+    const index = Math.floor(Math.random() * Math.floor(numEntries));
+    const winner = ticketArr[index];
+    this.props.removeWinningTicket(winner);
+    return winner;
+  }
+
   renderComponent = () => {
     switch (this.props.currentComponent) {
       case components.HOMEPAGE:
         return <HomePage showComponent={this.props.showComponent} />
       case components.TICKETFORM:
-        return <TicketForm showComponent={this.props.showComponent} />
+        return <TicketForm showComponent={this.props.showComponent} submitEntry={this.props.submitTickets} />
       case components.RAFFLE:
-        return <RafflePage showComponent={this.props.showComponent} />
+        return <RafflePage showComponent={this.props.showComponent} runRaffle={this.runRaffle} />
       default:
         return <HomePage showComponent={this.props.showComponent} />
     };
@@ -30,6 +48,9 @@ class ERaffle extends Component {
   }
 
   render() {
+
+    console.log(this.props.entries);
+
     return (
       <div>
         {this.renderComponent()}
@@ -41,12 +62,15 @@ class ERaffle extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentComponent: state.ui.app.currentComponent
+    currentComponent: state.ui.app.currentComponent,
+    entries: state.tickets
   };
 };
 
 const mapDispatchToProps = {
-  showComponent
+  showComponent,
+  submitTickets,
+  removeWinningTicket
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ERaffle);
