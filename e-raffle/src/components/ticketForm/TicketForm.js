@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
@@ -8,6 +8,8 @@ import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+
+import { components } from './../../redux/actions/uiActions';
 
 const theme = createMuiTheme({
     palette: {
@@ -69,74 +71,89 @@ const styles = theme => ({
 });
 
 
-const TicketForm = ({ classes }) => {
-    return (
-        <React.Fragment>
-            <div className={classes.layout} >
-                <main>
-                    <Paper className={classes.paper}>
-                        <div className={classes.title}>
-                            <Typography className={classes.title}>{"Ticket Submission"}</Typography>
-                        </div>
-                        <Grid container spacing={12} className={classes.formGrid}>
-                            <MuiThemeProvider theme={theme}>
-                                <Grid item xs={12} sm={8}>
-                                    <FormControl className={classes.formWidth}>
-                                        <InputLabel
-                                            FormLabelClasses={{
-                                                root: classes.cssLabel,
-                                                focused: classes.cssFocused,
-                                            }}
-                                            required
-                                        >
-                                            {"Name"}
-                                        </InputLabel>
-                                        <Input
-                                            classes={{
-                                                underline: classes.cssUnderline,
-                                            }}
-                                            id="name"
-                                        />
-                                    </FormControl>
-                                </Grid>
-                                <Grid item xs={12} sm={4}>
-                                    <FormControl className={classes.formWidth}>
-                                        <InputLabel
-                                            FormLabelClasses={{
-                                                root: classes.cssLabel,
-                                                focused: classes.cssFocused,
-                                            }}
-                                            required
-                                        >
-                                            {"Number of Tickets"}
-                                        </InputLabel>
-                                        <Input
-                                            classes={{
-                                                underline: classes.cssUnderline,
-                                            }}
-                                            id="tickets"
-                                        />
-                                    </FormControl>
-                                </Grid>
-                            </MuiThemeProvider>
-                        </Grid>
-                        <Grid container spacing={16}>
-                            <Grid item xs={12} sm={6}>
-                                <Button variant="outlined" className={classes.buttons}>
-                                    {"back"}
-                                </Button>
+class TicketForm extends Component {
+
+    updateNameEntry = (event) => {
+        this.setState({ name: event.target.value });
+    }
+
+    updateTicketEntry = (event) => {
+        this.setState({ tickets: event.target.value });
+    }
+
+    render() {
+        const { classes, showComponent } = this.props;
+
+        return (
+            <React.Fragment>
+                <div className={classes.layout} >
+                    <main>
+                        <Paper className={classes.paper}>
+                            <div className={classes.title}>
+                                <Typography className={classes.title}>{"Ticket Submission"}</Typography>
+                            </div>
+                            <Grid container spacing={12} className={classes.formGrid}>
+                                <MuiThemeProvider theme={theme}>
+                                    <Grid item xs={12} sm={8}>
+                                        <FormControl className={classes.formWidth}>
+                                            <InputLabel
+                                                FormLabelClasses={{
+                                                    root: classes.cssLabel,
+                                                    focused: classes.cssFocused,
+                                                }}
+                                                required
+                                            >
+                                                {"Name"}
+                                            </InputLabel>
+                                            <Input
+                                                classes={{
+                                                    underline: classes.cssUnderline,
+                                                }}
+                                                id="name"
+                                                onChange={this.updateNameEntry}
+                                            />
+                                        </FormControl>
+                                    </Grid>
+                                    <Grid item xs={12} sm={4}>
+                                        <FormControl className={classes.formWidth}>
+                                            <InputLabel
+                                                FormLabelClasses={{
+                                                    root: classes.cssLabel,
+                                                    focused: classes.cssFocused,
+                                                }}
+                                                required
+                                            >
+                                                {"Number of Tickets"}
+                                            </InputLabel>
+                                            <Input
+                                                classes={{
+                                                    underline: classes.cssUnderline,
+                                                }}
+                                                id="tickets"
+                                                onChange={this.updateTicketEntry}
+                                            />
+                                        </FormControl>
+                                    </Grid>
+                                </MuiThemeProvider>
                             </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <Button variant="outlined" className={classes.buttons}>
-                                    {"submit"}
-                                </Button>
+                            <Grid container spacing={16}>
+                                <Grid item xs={12} sm={6}>
+                                    <Button variant="outlined" className={classes.buttons} onClick={() => { showComponent(components.HOMEPAGE) }}>
+                                        {"back"}
+                                    </Button>
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <Button variant="outlined" className={classes.buttons} onClick={this.submitTickets}>
+                                        {"submit"}
+                                    </Button>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </Paper>
-                </main>
-            </div>
-        </React.Fragment >
-    );
+                        </Paper>
+                    </main>
+                </div>
+            </React.Fragment >
+        );
+    }
 }
 
 

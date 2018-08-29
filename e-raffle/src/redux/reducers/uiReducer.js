@@ -4,14 +4,9 @@ import initialState from './initialState'
 export function uiReducer(state = initialState.ui, action) {
     let newState;
     switch (action.type) {
-        case actions.FORM_VALIDATION_RESULTS:
+        case actions.SHOW_COMPONENT:
             newState = { ...state };
-            newState[action.formName].validationResults = action.validationResults;
-            break;
-
-        case actions.SHOW_MODAL:
-            newState = { ...state };
-            newState.app.currentModal = state.app.currentModal === action.modalName ? null : action.modalName;
+            newState.app.currentComponent = action.component;
             break;
 
         default:

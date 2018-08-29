@@ -13,7 +13,7 @@
 }
 body {
   font-family: 'Riesling';
-  background-image: url('https://www.hottopics.ht/wp-content/uploads/2015/11/6087506636_7e123994b4_o.jpg');
+  background-image: url('./assets/images/casino.jpg');
   background-repeat: no-repeat;
   background-position: center right; 
   filter: grayscale(0%); 

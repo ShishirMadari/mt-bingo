@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 
+import { components } from './../../redux/actions/uiActions';
+
 
 const theme = createMuiTheme({
     palette: {
@@ -63,7 +65,7 @@ const styles = theme => ({
 });
 
 
-const RafflePage = ({ classes }) => {
+const RafflePage = ({ classes, showComponent }) => {
     return (
         <React.Fragment>
             <div className={classes.layout} >
@@ -86,7 +88,7 @@ const RafflePage = ({ classes }) => {
                                 </MuiThemeProvider>
                             </Grid>
                             <Grid item xs={12}>
-                                <Button variant="outlined" className={classes.buttons}>
+                                <Button variant="outlined" className={classes.buttons} onClick={() => { showComponent(components.HOMEPAGE) }}>
                                     {"back"}
                                 </Button>
                             </Grid>

@@ -1,9 +1,10 @@
 const initialState = {
 	ui: {
 		app: {
-			currentComponent: 'main'
+			currentComponent: 'homePage'
 		}
-	}
+	},
+	tickets: []
 };
 
 export default initialState;
