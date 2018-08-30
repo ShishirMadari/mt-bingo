@@ -1,11 +1,12 @@
 import * as actions from '../constants/action-types';
 
-export function submitTickets(name, tickets) {
+export function submitTickets(name, tickets, pieName) {
     return dispatch => {
         dispatch({
             type: actions.SUBMIT_TICKETS,
             name,
-            tickets
+            tickets,
+            pieName
         });
     };
 };

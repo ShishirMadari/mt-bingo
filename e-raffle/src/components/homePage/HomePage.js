@@ -1,12 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-
+import React            from 'react';
+import PropTypes        from 'prop-types';
 import { components } from './../../redux/actions/uiActions';
+
+//material-ui
+import { withStyles }   from '@material-ui/core/styles';
+import Button           from '@material-ui/core/Button';
+import Paper            from '@material-ui/core/Paper';
+import Typography       from '@material-ui/core/Typography';
+import Grid             from '@material-ui/core/Grid';
+
 
 
 
@@ -55,8 +57,6 @@ const styles = theme => ({
     }
 });
 
-// background: 'linear-gradient(45deg, #FFC107 30%, #FFEE58 90%)',
-// background: 'radial-gradient(circle at 50% 0,#FFBF00,#FFDC73)',
 
 const HomePage = ({ classes, showComponent }) => {
     return (
@@ -64,18 +64,23 @@ const HomePage = ({ classes, showComponent }) => {
             <div className={classes.layout} >
                 <main>
                     <Paper className={classes.paper}>
-                        <div className={classes.title}>
+                        <Typography className={classes.title}>
                             {'Casino Night'}
-                        </div>
+                        </Typography>
                         <Grid container spacing={16}>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12} sm={4}>
                                 <Button variant="outlined" className={classes.buttons} onClick={() => { showComponent(components.TICKETFORM) }}>
                                     {"submit tickets"}
                                 </Button>
                             </Grid>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12} sm={4}>
                                 <Button variant="outlined" className={classes.buttons} onClick={() => { showComponent(components.RAFFLE) }}>
                                     {"raffle"}
+                                </Button>
+                            </Grid>
+                            <Grid item xs={12} sm={4}>
+                                <Button variant="outlined" className={classes.buttons} onClick={() => { showComponent(components.PIE_LEADERBOARD) }}>
+                                    {"pie leaderboard"}
                                 </Button>
                             </Grid>
                         </Grid>
@@ -90,17 +95,4 @@ HomePage.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-// const mapStateToProps = (state) => {
-//     return {
-//         currentComponent: state.ui.app.currentComponent
-//     };
-// };
-
-// const mapDispatchToProps = {
-//     showComponent
-// };
-
-export default
-    withStyles(styles)
-        // connect(mapStateToProps, mapDispatchToProps)
-        (HomePage);
+export default withStyles(styles)(HomePage);

@@ -33,12 +33,6 @@
     "redux-logger": "^3.0.6",
     "sass-loader": "^6.0.6"
   },
-  "lint-staged": {
-    "*.{js,json,scss}": [
-      "prettier --write --print-width 120 --tab-width 4 --single-quote --parser babylon",
-      "git add"
-    ]
-  },
   "eslintConfig": {
     "extends": "react-app"
   }

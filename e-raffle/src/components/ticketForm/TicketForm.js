@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-
 import { components } from './../../redux/actions/uiActions';
+
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Button                                           from '@material-ui/core/Button';
+import Paper                                            from '@material-ui/core/Paper';
+import Typography                                       from '@material-ui/core/Typography';
+import Grid                                             from '@material-ui/core/Grid';
+import Input                                            from '@material-ui/core/Input';
+import InputLabel                                       from '@material-ui/core/InputLabel';
+import FormControl                                      from '@material-ui/core/FormControl';
+import MenuItem                                         from "@material-ui/core/MenuItem";
+import Select                                           from "@material-ui/core/Select";
+
+
 
 const theme = createMuiTheme({
     palette: {
@@ -67,15 +71,26 @@ const styles = theme => ({
     },
     formWidth: {
         width: "95%"
-    }
+    },
+    formControl: {
+        margin: theme.spacing.unit,
+        minWidth: 120
+    },
 });
 
 
 class TicketForm extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            pie: "None",
+        };
+    }
+
     submitTickets = (submitEntry, showComponent) => {
-        if (this.state && this.state.name && this.state.tickets) {
-            submitEntry(this.state.name, this.state.tickets);
+        if (this.state.name && this.state.tickets) {
+            submitEntry(this.state.name, this.state.tickets, this.state.pie);
             alert("Entry made!");
             showComponent(components.HOMEPAGE);
         } else {
@@ -84,13 +99,13 @@ class TicketForm extends Component {
 
     }
 
-    updateNameEntry = (event) => {
-        this.setState({ name: event.target.value });
-    }
-
-    updateTicketEntry = (event) => {
-        this.setState({ tickets: parseInt(event.target.value, 10) });
-    }
+    handleChange = event => {
+        if (event.target.name === "tickets") {
+            this.setState({ tickets: parseInt(event.target.value, 10) });
+        } else {
+            this.setState({ [event.target.name]: event.target.value });
+        }
+    };
 
     render() {
         const { classes, showComponent, submitEntry } = this.props;
@@ -105,7 +120,7 @@ class TicketForm extends Component {
                             </div>
                             <Grid container spacing={16} className={classes.formGrid}>
                                 <MuiThemeProvider theme={theme}>
-                                    <Grid item xs={12} sm={8}>
+                                    <Grid item xs={12} sm={5}>
                                         <FormControl className={classes.formWidth}>
                                             <InputLabel
                                                 FormLabelClasses={{
@@ -121,7 +136,29 @@ class TicketForm extends Component {
                                                     underline: classes.cssUnderline,
                                                 }}
                                                 id="name"
-                                                onChange={this.updateNameEntry}
+                                                name="name"
+                                                onChange={this.handleChange}
+                                            />
+                                        </FormControl>
+                                    </Grid>
+                                    <Grid item xs={12} sm={3}>
+                                        <FormControl className={classes.formWidth}>
+                                            <InputLabel
+                                                FormLabelClasses={{
+                                                    root: classes.cssLabel,
+                                                    focused: classes.cssFocused,
+                                                }}
+                                                required
+                                            >
+                                                {"# of Tickets"}
+                                            </InputLabel>
+                                            <Input
+                                                classes={{
+                                                    underline: classes.cssUnderline,
+                                                }}
+                                                id="tickets"
+                                                name="tickets"
+                                                onChange={this.handleChange}
                                             />
                                         </FormControl>
                                     </Grid>
@@ -134,15 +171,28 @@ class TicketForm extends Component {
                                                 }}
                                                 required
                                             >
-                                                {"Number of Tickets"}
+                                                {"Select MT to Pie"}
                                             </InputLabel>
-                                            <Input
-                                                classes={{
-                                                    underline: classes.cssUnderline,
+                                            <Select
+                                                value={this.state && this.state.pie ? this.state.pie : "None"}
+                                                onChange={this.handleChange}
+                                                inputProps={{
+                                                    name: "pie",
+                                                    id: "pie"
                                                 }}
-                                                id="tickets"
-                                                onChange={this.updateTicketEntry}
-                                            />
+                                            >
+                                                <MenuItem value="None">
+                                                    <em>None</em>
+                                                </MenuItem>
+                                                <MenuItem value={"Stefanie"}>Stefanie</MenuItem>
+                                                <MenuItem value={"CP"}>CP</MenuItem>
+                                                <MenuItem value={"Toss"}>Toss</MenuItem>
+                                                <MenuItem value={"JP"}>JP</MenuItem>
+                                                <MenuItem value={"Luther"}>Luther</MenuItem>
+                                                <MenuItem value={"Vikki"}>Vikki</MenuItem>
+                                                <MenuItem value={"Laura"}>Laura</MenuItem>
+                                                <MenuItem value={"Sophie"}>Sophie</MenuItem>
+                                            </Select>
                                         </FormControl>
                                     </Grid>
                                 </MuiThemeProvider>

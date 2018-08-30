@@ -15,6 +15,7 @@ export function raffleReducer(state = initialState.tickets, action) {
         case actions.REMOVE_WINNER:
             newState = { ...state };
             newState[action.name] = (state[action.name] - 1);
+            break;
         default:
             break;
     }

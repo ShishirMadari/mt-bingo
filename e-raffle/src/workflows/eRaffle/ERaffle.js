@@ -7,6 +7,8 @@ import { connect } from "react-redux";
 import HomePage from './../../components/homePage/HomePage';
 import TicketForm from './../../components/ticketForm/TicketForm';
 import RafflePage from './../../components/raffle/RafflePage';
+import PieLeaderboard from './../../components/pieLeaderboard/PieLeaderboard';
+
 import './../../App.css';
 
 
@@ -40,16 +42,17 @@ class ERaffle extends Component {
         return <TicketForm showComponent={this.props.showComponent} submitEntry={this.props.submitTickets} />
       case components.RAFFLE:
         return <RafflePage showComponent={this.props.showComponent} runRaffle={this.runRaffle} />
+      case components.PIE_LEADERBOARD:
+        return <PieLeaderboard showComponent={this.props.showComponent} pieEntries={this.props.pieEntries} />
       default:
         return <HomePage showComponent={this.props.showComponent} />
     };
-
     return <HomePage showComponent={this.props.showComponent} />
   }
 
   render() {
 
-    console.log(this.props.entries);
+    console.log(this.props.state);
 
     return (
       <div>
@@ -63,7 +66,9 @@ class ERaffle extends Component {
 const mapStateToProps = (state) => {
   return {
     currentComponent: state.ui.app.currentComponent,
-    entries: state.tickets
+    entries: state.tickets,
+    pieEntries: state.pieEntries,
+    state: state
   };
 };
 

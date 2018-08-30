@@ -4,7 +4,9 @@ const initialState = {
 			currentComponent: 'homePage'
 		}
 	},
-	tickets: {}
+	tickets: {},
+	pie: {}
+
 };
 
 export default initialState;
