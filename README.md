@@ -8,6 +8,8 @@ At the end of the night, the manager on the Leadership team with the most ticket
 ## How To Run App
 
 To run the app, first install all node-modules at the root level: 
+
 `npm install`
 
 Then run the command `npm start` at the root level
+
