@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 // components
 import HomePage from './homePage/HomePage';
-import TicketForm from './ticketForm/TicketForm';
+import TicketPage from './ticketPage/TicketPage';
 import RafflePage from './raffle/RafflePage';
 import PieLeaderboard from './pieLeaderboard/PieLeaderboard';
 
@@ -36,7 +36,7 @@ class ERaffle extends Component {
       case components.HOMEPAGE:
         return <HomePage showComponent={this.props.showComponent} />
       case components.TICKETFORM:
-        return <TicketForm showComponent={this.props.showComponent} submitEntry={this.props.submitTickets} />
+        return <TicketPage showComponent={this.props.showComponent} submitEntry={this.props.submitTickets} />
       case components.RAFFLE:
         return <RafflePage showComponent={this.props.showComponent} runRaffle={this.runRaffle} />
       case components.PIE_LEADERBOARD:
