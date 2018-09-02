@@ -1,24 +1,19 @@
-import React            from 'react';
-import PropTypes        from 'prop-types';
-import { components } from './../../redux/actions/uiActions';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { components } from './../../../redux/actions/uiActions';
+
 
 //material-ui
-import { withStyles }   from '@material-ui/core/styles';
-import Button           from '@material-ui/core/Button';
-import Paper            from '@material-ui/core/Paper';
-import Typography       from '@material-ui/core/Typography';
-import Grid             from '@material-ui/core/Grid';
-
-
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 
 const styles = theme => ({
-    root: {
-        backgroundColor: "transparent"
-    },
     layout: {
         width: 'auto',
-        backgroundColor: "transparent",
         marginLeft: theme.spacing.unit * 2,
         marginRight: theme.spacing.unit * 2,
         marginTop: theme.spacing.unit * 20,
@@ -31,8 +26,6 @@ const styles = theme => ({
     paper: {
         ...theme.mixins.gutters(),
         backgroundColor: theme.palette.grey[900],
-        marginTop: theme.spacing.unit * 3,
-        marginBottom: theme.spacing.unit * 3,
         padding: theme.spacing.unit * 2,
         [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
             marginTop: theme.spacing.unit * 6,
@@ -43,10 +36,6 @@ const styles = theme => ({
     buttons: {
         width: "100%",
         background: 'linear-gradient(45deg, #FFC107 30%, #FFEE58 90%)',
-    },
-    titleSVG: {
-        width: "100%",
-        height: "100%",
     },
     title: {
         fontSize: "15vw",

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { components } from '../../redux/actions/uiActions';
+import { components } from './../../../redux/actions/uiActions';
 
+// material-ui
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Button                                           from '@material-ui/core/Button';
-import Paper                                            from '@material-ui/core/Paper';
-import Typography                                       from '@material-ui/core/Typography';
-import Grid                                             from '@material-ui/core/Grid';
-import Divider                                          from '@material-ui/core/Divider';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
 
 
 
@@ -18,8 +19,6 @@ const theme = createMuiTheme({
 });
 
 const styles = theme => ({
-    root: {
-    },
     layout: {
         width: 'auto',
         marginLeft: theme.spacing.unit * 2,
@@ -34,8 +33,6 @@ const styles = theme => ({
     paper: {
         ...theme.mixins.gutters(),
         backgroundColor: theme.palette.grey[900],
-        marginTop: theme.spacing.unit * 3,
-        marginBottom: theme.spacing.unit * 3,
         padding: theme.spacing.unit * 2,
         [theme.breakpoints.up(500 + theme.spacing.unit * 3 * 2)]: {
             marginTop: theme.spacing.unit * 6,
@@ -64,7 +61,7 @@ const styles = theme => ({
         color: "#FBD541",
     },
     result: {
-        fontSize: "5vw",
+        fontSize: "4vw",
         fontFamily: "Riesling",
         textAlign: 'center',
         color: "#FBD541",
@@ -72,6 +69,13 @@ const styles = theme => ({
 });
 
 class RafflePage extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            winner: null,
+        };
+    }
 
     drawRaffle(runRaffle) {
         const result = runRaffle();
@@ -83,17 +87,16 @@ class RafflePage extends Component {
     render() {
         const { classes, showComponent, runRaffle } = this.props;
 
-        const result = this.state && this.state.winner ? this.state.winner : "click on the 'draw raffle' button to select a winner";
+        const result = this.state.winner ? this.state.winner : "click on the 'draw raffle' button to select a winner";
 
-        console.log(result);
         return (
             <React.Fragment>
                 <div className={classes.layout} >
                     <main>
                         <Paper className={classes.paper}>
-                            <div className={classes.title}>
-                                <Typography className={classes.title}>{"Raffle"}</Typography>
-                            </div>
+                            <Typography className={classes.title}>
+                                {"Raffle"}
+                            </Typography>
                             <Grid container spacing={16}>
                                 <Grid item xs={12}>
                                     <Button variant="outlined" className={classes.buttons} onClick={() => { this.drawRaffle(runRaffle) }}>

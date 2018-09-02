@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { components } from './../../redux/actions/uiActions';
+import { components } from './../../../redux/actions/uiActions';
+import pieContestants from './../utils/pieContestants'
 
+// material-uis
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Button                                           from '@material-ui/core/Button';
-import Paper                                            from '@material-ui/core/Paper';
-import Typography                                       from '@material-ui/core/Typography';
-import Grid                                             from '@material-ui/core/Grid';
-import Input                                            from '@material-ui/core/Input';
-import InputLabel                                       from '@material-ui/core/InputLabel';
-import FormControl                                      from '@material-ui/core/FormControl';
-import MenuItem                                         from "@material-ui/core/MenuItem";
-import Select                                           from "@material-ui/core/Select";
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
 
 
 
@@ -36,8 +38,6 @@ const styles = theme => ({
     paper: {
         ...theme.mixins.gutters(),
         backgroundColor: theme.palette.grey[900],
-        marginTop: theme.spacing.unit * 3,
-        marginBottom: theme.spacing.unit * 3,
         padding: theme.spacing.unit * 2,
         [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
             marginTop: theme.spacing.unit * 6,
@@ -71,10 +71,6 @@ const styles = theme => ({
     },
     formWidth: {
         width: "95%"
-    },
-    formControl: {
-        margin: theme.spacing.unit,
-        minWidth: 120
     },
 });
 
@@ -115,9 +111,9 @@ class TicketForm extends Component {
                 <div className={classes.layout} >
                     <main>
                         <Paper className={classes.paper}>
-                            <div className={classes.title}>
-                                <Typography className={classes.title}>{"Ticket Submission"}</Typography>
-                            </div>
+                            <Typography className={classes.title}>
+                                {"Ticket Submission"}
+                            </Typography>
                             <Grid container spacing={16} className={classes.formGrid}>
                                 <MuiThemeProvider theme={theme}>
                                     <Grid item xs={12} sm={5}>
@@ -181,17 +177,9 @@ class TicketForm extends Component {
                                                     id: "pie"
                                                 }}
                                             >
-                                                <MenuItem value="None">
-                                                    <em>None</em>
-                                                </MenuItem>
-                                                <MenuItem value={"Stefanie"}>Stefanie</MenuItem>
-                                                <MenuItem value={"CP"}>CP</MenuItem>
-                                                <MenuItem value={"Toss"}>Toss</MenuItem>
-                                                <MenuItem value={"JP"}>JP</MenuItem>
-                                                <MenuItem value={"Luther"}>Luther</MenuItem>
-                                                <MenuItem value={"Vikki"}>Vikki</MenuItem>
-                                                <MenuItem value={"Laura"}>Laura</MenuItem>
-                                                <MenuItem value={"Sophie"}>Sophie</MenuItem>
+                                                {pieContestants.map(contestant => {
+                                                    return (<MenuItem key={contestant} value={contestant}>{contestant}</MenuItem>)
+                                                })}
                                             </Select>
                                         </FormControl>
                                     </Grid>

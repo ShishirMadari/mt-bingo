@@ -4,15 +4,12 @@ import { submitTickets, removeWinningTicket } from './../../redux/actions/raffle
 import { connect } from "react-redux";
 
 // components
-import HomePage from './../../components/homePage/HomePage';
-import TicketForm from './../../components/ticketForm/TicketForm';
-import RafflePage from './../../components/raffle/RafflePage';
-import PieLeaderboard from './../../components/pieLeaderboard/PieLeaderboard';
+import HomePage from './homePage/HomePage';
+import TicketForm from './ticketForm/TicketForm';
+import RafflePage from './raffle/RafflePage';
+import PieLeaderboard from './pieLeaderboard/PieLeaderboard';
 
 import './../../App.css';
-
-
-
 
 
 class ERaffle extends Component {
