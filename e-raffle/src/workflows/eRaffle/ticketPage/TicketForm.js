@@ -104,7 +104,6 @@ const TicketForm = ({ classes, saveChange, pie }) => {
                             }}
                         >
                             {pieContestants.map(contestant => {
-                                console.log(contestant);
                                 return (<MenuItem key={contestant} value={contestant}>{contestant}</MenuItem>)
                             })}
                         </Select>
@@ -119,6 +118,7 @@ const TicketForm = ({ classes, saveChange, pie }) => {
 TicketForm.propTypes = {
     classes: PropTypes.object.isRequired,
     saveChange: PropTypes.func.isRequired,
+    pie: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(TicketForm);
