@@ -1,0 +1,74 @@
+[
+  {
+    "description": "    As an internet user\n    In order efficiently raffle winners for a game night\n    I want to be able to submit contestant tickets and run raffle using e-raffle app",
+    "elements": [
+      {
+        "id": "entering-contestant-tickets-and-running-raffle-on-e-raffle-app;navigating-to-ticket-submission-page",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Navigating to Ticket Submission page",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I am on the E-Raffle app",
+            "result": {
+              "status": "passed",
+              "duration": 1831922369
+            },
+            "line": 9,
+            "match": {
+              "location": "/Users/shishirmadari/Documents/Personal/technical/e-raffle/test/step-definitions/e-raffle-steps.js:6"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I click on \"submit tickets\"",
+            "result": {
+              "status": "passed",
+              "duration": 166275970
+            },
+            "line": 10,
+            "match": {
+              "location": "/Users/shishirmadari/Documents/Personal/technical/e-raffle/test/step-definitions/e-raffle-steps.js:18"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see the page updated to \"Ticket Submission\"",
+            "result": {
+              "status": "passed",
+              "duration": 43454651
+            },
+            "line": 11,
+            "match": {
+              "location": "/Users/shishirmadari/Documents/Personal/technical/e-raffle/test/step-definitions/e-raffle-steps.js:12"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 131845925
+            },
+            "hidden": true,
+            "match": {
+              "location": "/Users/shishirmadari/Documents/Personal/technical/e-raffle/test/node_modules/selenium-cucumber-js/runtime/world.js:221"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "entering-contestant-tickets-and-running-raffle-on-e-raffle-app",
+    "keyword": "Feature",
+    "line": 3,
+    "name": "Entering contestant tickets and running raffle on e-raffle app",
+    "tags": [],
+    "uri": "/Users/shishirmadari/Documents/Personal/technical/e-raffle/test/features/e-raffle.feature"
+  }
+]

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;navigating-to-ticket-submission-page" tests="3" failures="0" skipped="0">
+        <properties>
+            <property name="URI" value="/Users/shishirmadari/Documents/Personal/technical/e-raffle/test/features/e-raffle.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am on the E-Raffle app" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;navigating-to-ticket-submission-page" time="1.831922369">
+        </testcase>
+        <testcase name="When I click on &quot;submit tickets&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;navigating-to-ticket-submission-page" time="0.16627597">
+        </testcase>
+        <testcase name="Then I should see the page updated to &quot;Ticket Submission&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;navigating-to-ticket-submission-page" time="0.043454651">
+        </testcase>
+    </testsuite>
+</testsuites>
