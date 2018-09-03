@@ -25,4 +25,4 @@ To run the automated tests, index into the /test folder and run:
 
 Then run the following command:
 
-`npm start`
+`npm run test`
