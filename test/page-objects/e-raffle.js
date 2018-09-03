@@ -9,6 +9,10 @@ class ERaffleClass {
         return helpers.loadPage(this.url);
     }
 
+    getDriver() {
+        return driver;
+    }
+
     /* wait for spinning wheel to appear and then disappear to assert page has loaded */
     async waitTillPageLoaded() {
         let elem = driver.findElement(by.css(".HomePage-layout-1"));
@@ -24,6 +28,16 @@ class ERaffleClass {
 
     async getCurrentPage() {
         return driver.findElement(by.css(".MuiTypography-body1-41")).getText();
+    }
+
+    async enterInput(name, value) {
+        await driver.findElement(by.name(name)).sendKeys(value);
+        return;
+    }
+
+    async getAlert() {
+        let alert = driver.switchTo().alert();
+        return alert;
     }
 }
 

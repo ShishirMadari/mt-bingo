@@ -5,11 +5,49 @@
             <property name="URI" value="/Users/shishirmadari/Documents/Personal/technical/e-raffle/test/features/e-raffle.feature">
             </property>
         </properties>
-        <testcase name="Given I am on the E-Raffle app" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;navigating-to-ticket-submission-page" time="1.831922369">
+        <testcase name="Given I am on the E-Raffle app" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;navigating-to-ticket-submission-page" time="1.836590052">
         </testcase>
-        <testcase name="When I click on &quot;submit tickets&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;navigating-to-ticket-submission-page" time="0.16627597">
+        <testcase name="When I click on &quot;submit tickets&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;navigating-to-ticket-submission-page" time="0.151356963">
         </testcase>
-        <testcase name="Then I should see the page updated to &quot;Ticket Submission&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;navigating-to-ticket-submission-page" time="0.043454651">
+        <testcase name="Then I should see the page updated to &quot;Ticket Submission&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;navigating-to-ticket-submission-page" time="0.034807457">
+        </testcase>
+    </testsuite>
+    <testsuite name="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-contestant-tickets-successfully" tests="7" failures="0" skipped="0">
+        <properties>
+            <property name="URI" value="/Users/shishirmadari/Documents/Personal/technical/e-raffle/test/features/e-raffle.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am on the E-Raffle app" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-contestant-tickets-successfully" time="1.749481253">
+        </testcase>
+        <testcase name="When I click on &quot;submit tickets&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-contestant-tickets-successfully" time="0.149752615">
+        </testcase>
+        <testcase name="And Navigate to &quot;Ticket Submission&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-contestant-tickets-successfully" time="0.034795674">
+        </testcase>
+        <testcase name="And I enter name &quot;Shishir&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-contestant-tickets-successfully" time="0.000871685">
+        </testcase>
+        <testcase name="And I enter tickets &quot;10&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-contestant-tickets-successfully" time="0.000763186">
+        </testcase>
+        <testcase name="And I click on &quot;submit&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-contestant-tickets-successfully" time="0.499226357">
+        </testcase>
+        <testcase name="Then I should see an alert saying &quot;Entry made!&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-contestant-tickets-successfully" time="0.000288187">
+        </testcase>
+    </testsuite>
+    <testsuite name="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-tickets-but-no-participant" tests="6" failures="0" skipped="0">
+        <properties>
+            <property name="URI" value="/Users/shishirmadari/Documents/Personal/technical/e-raffle/test/features/e-raffle.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am on the E-Raffle app" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-tickets-but-no-participant" time="1.671675256">
+        </testcase>
+        <testcase name="When I click on &quot;submit tickets&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-tickets-but-no-participant" time="0.118203238">
+        </testcase>
+        <testcase name="And Navigate to &quot;Ticket Submission&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-tickets-but-no-participant" time="0.032441338">
+        </testcase>
+        <testcase name="And I enter tickets &quot;10&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-tickets-but-no-participant" time="0.000766473">
+        </testcase>
+        <testcase name="And I click on &quot;submit&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-tickets-but-no-participant" time="0.293615018">
+        </testcase>
+        <testcase name="Then I should see an alert saying &quot;Please enter a name and number of tickets&quot;" classname="entering-contestant-tickets-and-running-raffle-on-e-raffle-app;submitting-tickets-but-no-participant" time="0.000117119">
         </testcase>
     </testsuite>
 </testsuites>
