@@ -14,7 +14,7 @@
             "name": "I am on the E-Raffle app",
             "result": {
               "status": "passed",
-              "duration": 1836590052
+              "duration": 2122614520
             },
             "line": 9,
             "match": {
@@ -27,7 +27,7 @@
             "name": "I click on \"submit tickets\"",
             "result": {
               "status": "passed",
-              "duration": 151356963
+              "duration": 208566264
             },
             "line": 10,
             "match": {
@@ -40,7 +40,7 @@
             "name": "I should see the page updated to \"Ticket Submission\"",
             "result": {
               "status": "passed",
-              "duration": 34807457
+              "duration": 38437929
             },
             "line": 11,
             "match": {
@@ -52,7 +52,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 134810049
+              "duration": 131048424
             },
             "hidden": true,
             "match": {
@@ -75,7 +75,7 @@
             "name": "I am on the E-Raffle app",
             "result": {
               "status": "passed",
-              "duration": 1749481253
+              "duration": 1670234407
             },
             "line": 14,
             "match": {
@@ -88,7 +88,7 @@
             "name": "I click on \"submit tickets\"",
             "result": {
               "status": "passed",
-              "duration": 149752615
+              "duration": 145191234
             },
             "line": 15,
             "match": {
@@ -101,7 +101,7 @@
             "name": "Navigate to \"Ticket Submission\"",
             "result": {
               "status": "passed",
-              "duration": 34795674
+              "duration": 32378078
             },
             "line": 16,
             "match": {
@@ -114,7 +114,7 @@
             "name": "I enter name \"Shishir\"",
             "result": {
               "status": "passed",
-              "duration": 871685
+              "duration": 801366
             },
             "line": 17,
             "match": {
@@ -127,7 +127,7 @@
             "name": "I enter tickets \"10\"",
             "result": {
               "status": "passed",
-              "duration": 763186
+              "duration": 677859
             },
             "line": 18,
             "match": {
@@ -140,7 +140,7 @@
             "name": "I click on \"submit\"",
             "result": {
               "status": "passed",
-              "duration": 499226357
+              "duration": 547339573
             },
             "line": 19,
             "match": {
@@ -153,7 +153,7 @@
             "name": "I should see an alert saying \"Entry made!\"",
             "result": {
               "status": "passed",
-              "duration": 288187
+              "duration": 224841
             },
             "line": 20,
             "match": {
@@ -165,7 +165,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 179677420
+              "duration": 258010535
             },
             "hidden": true,
             "match": {
@@ -188,7 +188,7 @@
             "name": "I am on the E-Raffle app",
             "result": {
               "status": "passed",
-              "duration": 1671675256
+              "duration": 1792044129
             },
             "line": 23,
             "match": {
@@ -201,7 +201,7 @@
             "name": "I click on \"submit tickets\"",
             "result": {
               "status": "passed",
-              "duration": 118203238
+              "duration": 171416081
             },
             "line": 24,
             "match": {
@@ -214,7 +214,7 @@
             "name": "Navigate to \"Ticket Submission\"",
             "result": {
               "status": "passed",
-              "duration": 32441338
+              "duration": 42562973
             },
             "line": 25,
             "match": {
@@ -227,7 +227,7 @@
             "name": "I enter tickets \"10\"",
             "result": {
               "status": "passed",
-              "duration": 766473
+              "duration": 997904
             },
             "line": 26,
             "match": {
@@ -240,7 +240,7 @@
             "name": "I click on \"submit\"",
             "result": {
               "status": "passed",
-              "duration": 293615018
+              "duration": 306650199
             },
             "line": 27,
             "match": {
@@ -253,7 +253,7 @@
             "name": "I should see an alert saying \"Please enter a name and number of tickets\"",
             "result": {
               "status": "passed",
-              "duration": 117119
+              "duration": 95547
             },
             "line": 28,
             "match": {
@@ -265,7 +265,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 161175017
+              "duration": 218289976
             },
             "hidden": true,
             "match": {

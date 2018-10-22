@@ -1,7 +1,7 @@
 const initialState = {
 	ui: {
 		app: {
-			currentComponent: 'homePage'
+			currentComponent: null
 		}
 	},
 	tickets: {
